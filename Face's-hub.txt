@@ -1,0 +1,218 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+    Name = "Faces-Hub",
+    LoadingTitle = "Faces-Hub",
+    LoadingSubtitle = "by ididoopsy123/Face/yngmaldini/Hassan",
+    Theme = "Dark", -- Change to any Rayfield theme you like
+    ConfigurationSaving = {
+        Enabled = true,
+        FolderName = "FacesHubData", -- Creates a folder in the executor's workspace
+        FileName = "Config"
+    },
+    Discord = {
+        Enabled = true,
+        Invite = "nautb7K63q", -- Replace with your Discord invite code
+        RememberJoins = true
+    },
+    KeySystem = true,
+    KeySettings = {
+        Title = "Faces-Hub Key System",
+        Subtitle = "Enter your key to continue",
+        Note = "Join the Discord to get your key!",
+        FileName = "FacesHubKey",
+        SaveKey = true,
+        GrabKeyFromSite = false, -- Change to true and provide URL if hosting keys online
+        Key = {"thxforusingkey"} -- Replace with your desired keys
+    }
+})
+
+-- Tabs
+local MainTab = Window:CreateTab("Home", nil)
+local ScriptsTab = Window:CreateTab("Scripts", nil)
+local SettingsTab = Window:CreateTab("Settings", nil)
+
+-- Main Tab
+local MainSection = MainTab:CreateSection("Main Features")
+
+-- Dropdown for Selecting Hubs (Fixed Callback Issue + Added Storgen Hub)
+MainTab:CreateDropdown({
+    Name = "Select a Hub",
+    Options = {"Owl Hub", "Dark Hub", "Universal Hub", "Storgen Hub"},
+    Callback = function(selectedOption)
+        print("Selected Hub: " .. selectedOption)
+        local hubUrls = {
+            ["Owl Hub"] = "https://pastebin.com/raw/Zq5bC5e7",
+            ["Dark Hub"] = "https://pastebin.com/raw/AHk7uXBL",
+            ["Universal Hub"] = "https://pastebin.com/raw/LG7pH0JH",
+            ["Storgen Hub"] = "https://api.luarmor.net/files/v3/loaders/5fd4081f6802dd9833957a3a8f72d515.lua"
+        }
+        local url = hubUrls[selectedOption]
+        if url then
+            local success, err = pcall(function()
+                loadstring(game:HttpGet(url))()
+            end)
+            if success then
+                Rayfield:Notify({
+                    Title = "Hub Loaded",
+                    Content = selectedOption .. " has been loaded successfully.",
+                    Duration = 5,
+                })
+            else
+                Rayfield:Notify({
+                    Title = "Error",
+                    Content = "Failed to load " .. selectedOption .. ". Check the script URL.",
+                    Duration = 5,
+                })
+                warn("Error loading hub: " .. err)
+            end
+        else
+            Rayfield:Notify({
+                Title = "Error",
+                Content = "Invalid Hub selected.",
+                Duration = 5,
+            })
+        end
+    end
+})
+
+-- Scripts Tab
+local ScriptsSection = ScriptsTab:CreateSection("Games Scripts")
+
+ScriptsTab:CreateButton({
+    Name = "Da Hood Script",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/games/dahood.lua'))()
+    end
+})
+
+ScriptsTab:CreateButton({
+    Name = "Arsenal Script",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/games/arsenal.lua'))()
+    end
+})
+
+ScriptsTab:CreateButton({
+    Name = "Tower of Hell Script",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/games/towerofhell.lua'))()
+    end
+})
+
+ScriptsTab:CreateButton({
+    Name = "KAT! Script",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/games/kat.lua'))()
+    end
+})
+
+ScriptsTab:CreateButton({
+    Name = "Fencing Script",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/games/fencing.lua'))()
+    end
+})
+
+ScriptsTab:CreateButton({
+    Name = "Work at a Pizza Place Script",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/games/workatapizzaplace.lua'))()
+    end
+})
+
+ScriptsTab:CreateButton({
+    Name = "VR Hands Script",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/games/vrhands.lua'))()
+    end
+})
+
+ScriptsTab:CreateButton({
+    Name = "Adopt Me Script",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/games/adoptme.lua'))()
+    end
+})
+
+ScriptsTab:CreateButton({
+    Name = "JailBreak Script",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/games/jailbreak.lua'))()
+    end
+})
+
+ScriptsTab:CreateButton({
+    Name = "Prison Life Script",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/games/prisonlife.lua'))()
+    end
+})
+
+ScriptsTab:CreateButton({
+    Name = "Build A Boat Script",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/games/buildaboatfortreasure.lua'))()
+    end
+})
+
+ScriptsTab:CreateButton({
+    Name = "Gorilla Tag Script",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/games/gorillatagprofessional.lua'))()
+    end
+})
+
+ScriptsTab:CreateButton({
+    Name = "Murder Mystery 2 Script",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/games/murdermystery2.lua'))()
+    end
+})
+
+ScriptsTab:CreateButton({
+    Name = "Blox Fruits Script",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/games/bloxfruits.lua'))()
+    end
+})
+
+ScriptsTab:CreateButton({
+    Name = "Counter Blox Script",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/games/counterblox.lua'))()
+    end
+})
+
+ScriptsTab:CreateButton({
+    Name = "Mic Up Script",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/games/micup.lua'))()
+    end
+})
+
+-- Settings Tab
+local SettingsSection = SettingsTab:CreateSection("Customization Options")
+SettingsTab:CreateToggle({
+    Name = "Enable Notifications",
+    CurrentValue = true,
+    Callback = function(state)
+        print("Notifications " .. (state and "Enabled" or "Disabled"))
+    end
+})
+SettingsTab:CreateSlider({
+    Name = "Interface Transparency",
+    Range = {0, 100},
+    Increment = 1,
+    CurrentValue = 100,
+    Callback = function(value)
+        print("Transparency set to " .. value .. "%")
+    end
+})
+
+-- Notify that the script executed successfully
+Rayfield:Notify({
+    Title = "Faces-Hub Loaded",
+    Content = "Welcome to Faces-Hub! Use the tabs to explore features.",
+    Duration = 5,
+})
